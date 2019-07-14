@@ -21,7 +21,7 @@ We need 3 sections for the config file
     - user: your username
     - password: your password
     - query: an array of tags to search on danbooru
-  - options keys:
+  - optional keys:
     - nsfw: bool, mark uploads as sensitive
 - danbooru:
   - required keys:
