@@ -1,0 +1,14 @@
+searches:
+  - user: "MyBot"
+    password: AAAAEXAMPLE
+    query: ["funami_yui", "rating:safe"]
+  - user: "HifumiBot"
+    password: CUTEEXAMPLE
+    query: ["takimoto_hifumi", "rating:safe"]
+    nsfw: yes
+
+danbooru:
+  username: example
+  password: abc
+
+instance: "https://ihatebeinga.live"
