@@ -34,3 +34,8 @@ We need 3 sections for the config file
 ```bash
 python3 run.py
 ```
+
+### Only run one bot
+```bash
+python3 run.py MeguminBot
+```
