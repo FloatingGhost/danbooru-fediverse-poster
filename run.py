@@ -2,13 +2,18 @@ import os
 import requests
 from mastodon import Mastodon
 from pyaml import yaml
+import sys
 
 with open("config.yaml", "r") as f:
     config = yaml.load(f)
 
 BASE_URL = config["instance"]
+searches = config["searches"]
 
-for search in config["searches"]:
+if len(sys.argv) > 1:
+    searches = [x for x in searches if x["user"].lower() == sys.argv[1].lower()]
+
+for search in searches:
     user_creds = "{}.user.secret".format(search["user"])
 
     if not os.path.exists(user_creds):
@@ -48,5 +53,5 @@ for search in config["searches"]:
       ".",
       sensitive=search.get("nsfw", False),
       media_ids=[img],
-      visibility="public"
+      visibility="unlisted"
     )
