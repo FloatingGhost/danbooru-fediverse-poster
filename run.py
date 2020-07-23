@@ -3,6 +3,7 @@ import requests
 from mastodon import Mastodon
 from pyaml import yaml
 import sys
+import time
 
 with open("config.yaml", "r") as f:
     config = yaml.load(f)
@@ -50,8 +51,10 @@ for search in searches:
     img = mastodon.media_post("/tmp/danbooru.png")["id"]
 
     mastodon.status_post(
-      ".",
+      search.get("msg", "."),
       sensitive=search.get("nsfw", False),
       media_ids=[img],
       visibility="unlisted"
     )
+
+    time.sleep(20)
